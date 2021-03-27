@@ -1,0 +1,41 @@
+module AlmVector_tb();
+	reg isenal;
+	reg iclk = 1'd0;
+	wire [7:0] oValor;
+	
+	AlmVector uut(
+	.isenal(isenal),
+	.iclk(iclk),
+	.oValor(oValor)
+	);
+	
+	initial
+	begin
+		isenal = 0;
+		#125;
+		isenal = 1;
+		#150;
+		isenal = 1;
+		#175;
+		isenal = 0;
+		#200;
+		isenal = 0;
+		#225;
+		isenal = 0;
+		#250;
+		isenal = 1;
+		#275;
+		isenal = 0;
+		#300;
+	end
+	
+	always 
+	begin
+		forever
+			begin
+				iclk = ~iclk;
+				#50;
+			end
+	end
+	
+endmodule 

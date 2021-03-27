@@ -1,0 +1,29 @@
+module AlmVector(
+	input iclk,
+	output [7:0] oValor
+	);
+	
+	reg [7:0]memory[3:0];
+	reg [7:0]result;
+	
+	reg [1:0]rCounter_D = 0;
+	reg [1:0]rCounter_Q = 0;
+	
+	initial
+	begin 
+		$readmemh("first.mem.txt",memory);
+	end
+	
+	assign oValor = result;
+
+	always @ (posedge iclk)
+	begin
+		result <= memory[rCounter_Q];
+		rCounter_Q <= rCounter_Q;
+	end
+	
+	always @*
+	begin
+		rCounter_D = rCounter_Q + 2'd1;
+	end
+endmodule 
