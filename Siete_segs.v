@@ -1,0 +1,29 @@
+module Siete_segs(
+					 
+	input [3:0] num,
+	output reg [6:0] segs
+	);
+always @(*)
+case (num)
+
+			//		     abcdefg
+			0: segs=7'b0000001;
+			1: segs=7'b1001111;
+			2: segs=7'b0010010;
+			3: segs=7'b0000110;
+			4: segs=7'b1001100;
+			5: segs=7'b0100100;
+			6: segs=7'b0100000;
+			7: segs=7'b0001111;
+			8: segs=7'b0000000;
+			9: segs=7'b0000100;
+			10:segs=7'b0001000;
+			11:segs=7'b1100000;
+			12:segs=7'b0110001;
+			13:segs=7'b1000010;
+			14:segs=7'b0110000;
+			15:segs=7'b0111000;
+			
+		endcase
+
+endmodule
